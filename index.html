@@ -2,7 +2,9 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>日能研風スライダー</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日能研風カルーセル</title>
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="cdn.jsdelivr.net" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,15 +12,35 @@
 
     <div class="swiper main-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="via.placeholder.com" alt="画像1"></div>
-            <div class="swiper-slide"><img src="via.placeholder.com" alt="画像2"></div>
-            <div class="swiper-slide"><img src="via.placeholder.com" alt="画像3"></div>
+            <!-- スライド1 -->
+            <div class="swiper-slide">
+                <a href="www.nichinoken.co.jp" target="_top">
+                    <img src="images/banner1.jpg" alt="イベント情報">
+                </a>
+            </div>
+            <!-- スライド2 -->
+            <div class="swiper-slide">
+                <a href="www.nichinoken.co.jp" target="_top">
+                    <img src="images/banner2.jpg" alt="入会案内">
+                </a>
+            </div>
+            <!-- スライド3 -->
+            <div class="swiper-slide">
+                <a href="www.nichinoken.co.jp" target="_top">
+                    <img src="images/banner3.jpg" alt="学習コース">
+                </a>
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
+
+        <!-- ナビゲーションボタン（左右の矢印） -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+
+        <!-- ページネーション（下のドット） -->
+        <div class="swiper-pagination"></div>
     </div>
 
+    <!-- Swiper JS -->
     <script src="cdn.jsdelivr.net"></script>
     <script src="script.js"></script>
 </body>
