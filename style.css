@@ -1,23 +1,9 @@
 .main-slider {
-  width: 100%;
-  max-width: 1200px; /* PCでの最大幅 */
-  margin: 20px auto;
-  border-radius: 8px; /* 角を少し丸くすると塾サイト風の安心感が出ます */
-  overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
 }
-
 .swiper-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 矢印ボタンの色を日能研のイメージカラー（青や紺）に合わせる場合 */
-.swiper-button-next, .swiper-button-prev {
-  color: #003366; 
-}
-
-/* ドットの色を調整 */
-.swiper-pagination-bullet-active {
-  background: #003366;
+    width: 100%;
+    height: auto;
 }
