@@ -1,23 +1,56 @@
-const swiper = new Swiper('.main-slider', {
-    loop: true,               // 無限ループ
-    speed: 1000,              // 切り替えアニメーションの速度(1秒)
-    
-    autoplay: {
-        delay: 5000,          // 5秒ごとに自動で切り替わる
-        disableOnInteraction: false, // ユーザーが手動で動かしても自動再生を止めない
-    },
+const slide = document.getElementById('slide');
+const items = document.querySelectorAll('.item');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,      // ドットをクリックして切り替え
-    },
+let counter = 0;
+const intervalTime = 5000; // 5秒 (5000ms)
+let slideInterval;
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+// スライドを動かすメイン関数
+const updateSlide = () => {
+  slide.style.transform = `translateX(${-100 * counter}%)`;
+};
 
-    // Canva埋め込み内での動作安定化
-    observer: true,
-    observeParents: true,
+// 次のスライドへ
+const nextSlide = () => {
+  counter++;
+  if (counter >= items.length) {
+    counter = 0; // 最後まで行ったら最初に戻る
+  }
+  updateSlide();
+};
+
+// 前のスライドへ
+const prevSlide = () => {
+  counter--;
+  if (counter < 0) {
+    counter = items.length - 1; // 最初だったら最後に飛ぶ
+  }
+  updateSlide();
+};
+
+// 自動再生を開始する関数
+const startSlide = () => {
+  slideInterval = setInterval(nextSlide, intervalTime);
+};
+
+// 自動再生をリセットする関数（ボタン操作時に呼ぶ）
+const resetInterval = () => {
+  clearInterval(slideInterval);
+  startSlide();
+};
+
+// イベントリスナー
+nextBtn.addEventListener('click', () => {
+  nextSlide();
+  resetInterval(); // 手動操作したらタイマーをリセット
 });
+
+prevBtn.addEventListener('click', () => {
+  prevSlide();
+  resetInterval(); // 手動操作したらタイマーをリセット
+});
+
+// 実行
+startSlide();
