@@ -4,7 +4,7 @@ const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 
 let counter = 0;
-const intervalTime = 4000; // ４秒
+const intervalTime = 5000; // ５秒
 let slideInterval;
 
 function updateSlide() {
